@@ -1,9 +1,9 @@
 <?php
 
-	$matric = $_POST["matric"];
+	$matric = $_POST["matric"]; 
 	$name = $_POST["name"];
 	$role = $_POST["role"];
-
+	$primary = $_POST["original_matric"];
 	
 	$host = "localhost";
 	$user = "root";
@@ -19,7 +19,7 @@ if ($conn->connect_error)
 	
 else
 {
-	$queryUpdate = "UPDATE USERS SET matric = '".$matric."' ,name = '".$name."' , role = '".$role."'";
+	$queryUpdate = "UPDATE USERS SET matric = '".$matric."' ,name = '".$name."' , role = '".$role."' WHERE matric = '".$primary."'" ;
 	
 	if ($conn->query($queryUpdate) === TRUE)
 	{
