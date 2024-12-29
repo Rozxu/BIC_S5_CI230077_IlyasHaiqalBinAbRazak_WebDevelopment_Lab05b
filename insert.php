@@ -41,5 +41,5 @@ $conn->close();
 ?>
 
 <?php 
-header("Refresh:2; url=login.html");
+header("Refresh:2; url=login.php");
 ?>
