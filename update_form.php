@@ -41,8 +41,9 @@ $user = $result->fetch_assoc();
 ?>
 
 <form action="update.php" method="post">
-    <label for="name">Matric:</label>
-    <input name="matric" value="<?php echo $user['matric']; ?>"> <br>
+    <label for="matric">Matric:</label>
+    <input type="text" id="matric" name="matric" value="<?php echo $user['matric']; ?>" required><br>
+    <input type="hidden" name="original_matric" value="<?php echo $user['matric']; ?>">
     <label for="name">Name:</label>
     <input type="text" id="name" name="name" value="<?php echo $user['name']; ?>" required><br>
     <label for="role">Role:</label>
@@ -52,7 +53,7 @@ $user = $result->fetch_assoc();
         <option value="student" <?php echo ($user['role'] === 'student') ? "selected" : ""; ?>>Student</option>
     </select><br>
     <input type="submit" value="Update">
-	<a href="display.php">Cancel</a>
+    <a href="display.php">Cancel</a>
 </form>
 
 <?php
